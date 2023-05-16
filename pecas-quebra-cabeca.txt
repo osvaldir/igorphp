@@ -1,0 +1,55 @@
+
+require 'includes/funcoes.php';
+echo "SELECT * FROM usuario WHERE dados_acesso='".$_POST["dados_acesso"]."' and chave_entrada='".$_POST["chave_entrada"]."' and sstatus=1<br>";
+$sqllista1 = $conexao->prepare("SELECT * FROM usuario WHERE dados_acesso='".$_POST["dados_acesso"]."' and chave_entrada='".$_POST["chave_entrada"]."' and sstatus=1");
+$sqllista1->execute();
+if ($sqllista1->rowCount()>0) {
+	echo "Login existe pode acessar";
+	exit();
+}else{
+	echo "Login Invalido";
+	exit();
+}
+$sqllista1->fetch();
+$sqllista1->closeCursor();
+
+require 'includes/connexao.php';
+
+$_SESSION["acesso"] = "0";
+$sqllista1 = $conexao->prepare("SELECT * FROM usuario WHERE dados_acesso='".$_POST["dados_acesso"]."' and chave_entrada='".$_POST["chave_entrada"]."' and sstatus=1");
+$sqllista1->execute();
+if ($sqllista1->rowCount()>0) {
+	$_SESSION["acesso"] = "1";
+}
+$sqllista1->fetch();
+$sqllista1->closeCursor();
+
+
+$db_user = "root";
+$db_senha = "123456";
+$servidor = 'localhost';
+$bd       = 'igorphp';
+
+$conexao = null;
+
+$_SESSION["acesso"] = "0";
+header('Location: login.php');
+exit();
+
+session_start();
+
+$nomedapagina = "painel";
+
+
+require 'includes/connexao.php';
+if ($_SESSION["acesso"]=="0" || empty($_SESSION["acesso"]) || $_SESSION["acesso"]==""){
+	header('Location: login.php');
+	exit();
+}
+require 'includes/funcoes.php';
+
+<?=$nomedapagina=="artigo"? "style='color:#336600;font-weight:bold;'":""?>
+
+<script>
+	location.href="painel.php"
+</script>
