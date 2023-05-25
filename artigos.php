@@ -33,18 +33,9 @@ $nomedapagina = "artigo";
 <div id="content" class="container">
 	<div class="row">
 		<div class="col-sm-4">
-			<div class="login-panel panel panel-default">
-				<div class="panel-heading">
-					<h3 class="panel-title">Menu</h3>
-				</div>
-				<div class="panel-body">
-					<dl>
-						<dt><a href="painel.php" <?=$nomedapagina == "painel" ? "style='color:#336600;font-weight:bold;'" : ""?>>Home/Painel</a></dt>
-						<dd><a href="artigos.php" <?=$nomedapagina=="artigo"? "style='color:#336600;font-weight:bold;'":""?>>Artigos</a></dd>
-						<dd><a href="sair.php">Sair</a></dd>
-					</dl>
-				</div>
-			</div>
+		<?php
+			require 'includes/painel-lateral.php';
+		?>
 		</div>
 		<div class="col-sm-20">
 			<div class="panel panel-default">

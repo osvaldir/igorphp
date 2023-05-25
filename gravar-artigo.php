@@ -6,7 +6,7 @@ $conteudoArtigo = $_POST['conteudo-artigo'];
 
 try {
 
-    $query = "INSERT INTO usuario(dados_acesso, chave_entrada) VALUES ('$tituloArtigo', '$conteudoArtigo')"; 
+    $query = "INSERT INTO artigos(dados_acesso, chave_entrada) VALUES ('$tituloArtigo', '$conteudoArtigo')"; 
 
     $conexao->exec($query);
 
