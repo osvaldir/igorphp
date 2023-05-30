@@ -5,7 +5,7 @@
             <div class="panel-body">
                 <dl>
                     <dt><a href="painel.php" <?=$nomedapagina=="painel"? "style='color:#336600;font-weight:bold;'":""?>>Home/Painel</a></dt>
-                    <dd><a href="artigos.php" <?=$nomedapagina=="artigo"? "style='color:#336600;font-weight:bold;'":""?>>Artigos</a></dd>
+                    <dd><a href="lista_artigos.php" <?=$nomedapagina=="artigo"? "style='color:#336600;font-weight:bold;'":""?>>Artigos</a></dd>
                     <dd><a href="sair.php">Sair</a></dd>
                 </dl>
             </div>

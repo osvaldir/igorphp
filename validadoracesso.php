@@ -11,14 +11,11 @@ $sqllista1->execute();
 if ($sqllista1->rowCount()>0) {
 	$_SESSION["acesso"] = "1";
 	header('Location: painel.php');
-	
-
 } else {
 	header('Location: login.php?erro-login=true');
 	echo "login não encontrado";
 }
 $sqllista1->fetch();
-
 $sqllista1->closeCursor();
 
 $conexao = null;

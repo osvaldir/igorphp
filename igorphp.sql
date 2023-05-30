@@ -1,5 +1,5 @@
-﻿# Host: localhost  (Version 5.5.5-10.4.27-MariaDB)
-# Date: 2023-05-25 15:29:37
+﻿# Host: localhost  (Version 8.0.32)
+# Date: 2023-05-30 16:34:04
 # Generator: MySQL-Front 6.0  (Build 2.20)
 
 
@@ -9,9 +9,12 @@
 
 DROP TABLE IF EXISTS `artigos`;
 CREATE TABLE `artigos` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Id` int NOT NULL AUTO_INCREMENT,
+  `titulo_artigo` varchar(255) DEFAULT NULL,
+  `conteudo_artigo` longblob,
+  `sstatus` tinyint(1) DEFAULT '0' COMMENT '0 aguardando aprovacao 1 aprovado 9 excluido',
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 #
 # Data for table "artigos"
@@ -24,12 +27,12 @@ CREATE TABLE `artigos` (
 
 DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE `usuario` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Id` int NOT NULL AUTO_INCREMENT,
   `dados_acesso` varchar(50) DEFAULT NULL,
   `chave_entrada` varchar(25) DEFAULT NULL,
-  `sstatus` tinyint(1) DEFAULT 1,
+  `sstatus` tinyint(1) DEFAULT '1',
   PRIMARY KEY (`Id`)
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 #
 # Data for table "usuario"
