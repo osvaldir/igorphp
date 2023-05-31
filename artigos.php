@@ -43,13 +43,29 @@ $nomedapagina = "artigo";
 					<h3 class="panel-title">Artigos</h3>
 				</div>
 				<div class="panel-body">
+					<?$sqllista1 = $conexao->prepare("SELECT * FROM artigos WHERE Id='".$_POST['idregistro']."'");
+					$sqllista1->execute();
+					if ($sqllista1->rowCount()>0) {
+						while( $rs_sqllista1 = $sqllista1->fetch() ) {
+							$titulo_artigo		= $rs_sqllista1['titulo_artigo'];
+							$conteudo_artigo	= $rs_sqllista1['conteudo_artigo'];
+						}
+					}
+					$sqllista1->fetch();
+					$sqllista1->closeCursor();
+					$conexao = null;?>
 					<form name="formartigo" method="post" action="gravar-artigo.php">
+						<input type="hidden" name="idregistro" id="idregistro" value="<?=$_POST['idregistro']?>">
 						<fieldset>
 							<div class="form-group">
-								<input class="form-control" placeholder="Nome" name="titulo_artigo" type="text" required="required" />
+								<input class="form-control" placeholder="Nome" name="titulo_artigo" type="text" value="<?=$titulo_artigo?>" required="required" maxlength="255" />
 							</div>
 							<div class="form-group">
+<<<<<<< HEAD
 								<textarea name="conteudo_artigo"></textarea>
+=======
+								<textarea name="conteudo_artigo"><?=$conteudo_artigo?></textarea>
+>>>>>>> 82ea3bb1826f0978c2abee972cd8dcf677297683
 							</div>
 							<input type="submit" class="btn btn-lg btn-success btn-block" value="Salvar" />
 							<?php
@@ -77,7 +93,8 @@ $nomedapagina = "artigo";
 <script src="https://solutta.auditto.com.br/js/jquery.utils.js?1" type="text/javascript"></script>
 <script src="https://cdn.ckeditor.com/4.21.0/standard/ckeditor.js"></script>
 <script>
-	CKEDITOR.replace('conteudo-artigo');
+	//CKEDITOR.replace('conteudo_artigo');
+	CKEDITOR.replace('conteudo_artigo', {height: '80vh'});
 </script>
 </body>
 </html>

@@ -1,8 +1,8 @@
 <?php
 $db_user = "root";
-$db_senha = "";
+$db_senha = "123456";
 $servidor = 'localhost';
-$bd = 'teste';
+$bd = 'igorphp';
 try{
 	$conexao = new PDO("mysql:host=$servidor;dbname=$bd;charset=utf8;", $db_user, $db_senha);
 }catch (PDOException $e) {
