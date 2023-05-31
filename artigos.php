@@ -49,7 +49,7 @@ $nomedapagina = "artigo";
 								<input class="form-control" placeholder="Nome" name="titulo_artigo" type="text" required="required" />
 							</div>
 							<div class="form-group">
-								<textarea name="conteudo-artigo"></textarea>
+								<textarea name="conteudo_artigo"></textarea>
 							</div>
 							<input type="submit" class="btn btn-lg btn-success btn-block" value="Salvar" />
 							<?php

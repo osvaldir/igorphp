@@ -6,7 +6,7 @@ $conteudoArtigo = $_POST['conteudo-artigo'];
 
 try {
 
-    $query = "INSERT INTO artigos(dados_acesso, chave_entrada) VALUES ('$tituloArtigo', '$conteudoArtigo')"; 
+    $query = "INSERT INTO artigos(titulo_artigo, descricao) VALUES ('$tituloArtigo', '$conteudoArtigo')"; 
 
     $conexao->exec($query);
 
@@ -15,8 +15,4 @@ try {
 } catch (Exception $e) {
     header('Location: artigos.php?artigos-gravado=false');
 }
-
-
-
-
 ?>
